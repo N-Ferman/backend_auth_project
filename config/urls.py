@@ -17,6 +17,10 @@ from apps.access.views import (
     UserRoleDetailView,
 )
 
+from apps.business.views import (
+    MockBusinessListCreateView,
+    MockBusinessDetailView,
+)
 
 urlpatterns = [
     path("api/auth/register/", RegisterView.as_view()),
@@ -35,4 +39,7 @@ urlpatterns = [
 
     path("api/admin/user-roles/", UserRoleListCreateView.as_view()),
     path("api/admin/user-roles/<int:user_role_id>/", UserRoleDetailView.as_view()),
+
+    path("api/business/<str:element_code>/", MockBusinessListCreateView.as_view()),
+    path("api/business/<str:element_code>/<int:object_id>/", MockBusinessDetailView.as_view()),
 ]
