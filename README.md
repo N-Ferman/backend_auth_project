@@ -119,3 +119,8 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py seed_demo
 python manage.py runserver
+
+## Запуск через Docker Compose
+
+```bash
+docker compose up --build
