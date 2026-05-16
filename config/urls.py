@@ -22,6 +22,14 @@ from apps.business.views import (
     MockBusinessDetailView,
 )
 
+from django.http import JsonResponse
+
+def health_check(request):
+    return JsonResponse({
+        "status": "ok",
+        "message": "Auth API is running"
+    })
+
 urlpatterns = [
     path("api/auth/register/", RegisterView.as_view()),
     path("api/auth/login/", LoginView.as_view()),
@@ -42,4 +50,7 @@ urlpatterns = [
 
     path("api/business/<str:element_code>/", MockBusinessListCreateView.as_view()),
     path("api/business/<str:element_code>/<int:object_id>/", MockBusinessDetailView.as_view()),
+
+    path("", health_check),
 ]
+
